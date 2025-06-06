@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Navbar } from "@/components/core/Navbar";
 import { Sidebar } from "@/components/core/Sidebar";
+import { SettingsProvider } from "@/context/SettingsContext";
 
 export default function MainLayout({
   children,
@@ -33,14 +34,16 @@ export default function MainLayout({
 
   // If loading is false and user exists, render the protected layout
   return (
-    <div className="flex h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-      <Sidebar />
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <Navbar />
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 dark:bg-gray-950 p-6">
-          {children}
-        </main>
+    <SettingsProvider>
+      <div className="flex h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+        <Sidebar />
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <Navbar />
+          <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 dark:bg-gray-950 p-6">
+            {children}
+          </main>
+        </div>
       </div>
-    </div>
+    </SettingsProvider>
   );
 }

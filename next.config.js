@@ -24,7 +24,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' 'unsafe-hashes' https://applepay.cdn-apple.com https://js.stripe.com https://b.stripecdn.com https://checkout.stripe.com https://*.stripe.com",
               "font-src 'self' data: https://assets.alicdn.com",
               "connect-src 'self' https://*.vercel-insights.com https://vitals.vercel-insights.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://*.googleapis.com https://api.stripe.com https://r.stripe.com/b https://checkout.stripe.com https://maps.googleapis.com https://*.firebaseapp.com https://applepay.cdn-apple.com",
-              "img-src 'self' data: https://res.cloudinary.com https://www.gstatic.com https://*.stripe.com"
+              "img-src 'self' data: blob: https://res.cloudinary.com https://www.gstatic.com https://*.stripe.com"
             ].join("; ")
           },
 

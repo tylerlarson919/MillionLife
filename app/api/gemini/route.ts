@@ -1,6 +1,7 @@
 import { streamText } from "ai";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { NextRequest } from "next/server";
+import { CoreMessage } from "ai";
 
 export const runtime = "edge";
 
@@ -18,16 +19,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { prompt } = await req.json();
-
-    if (!prompt) {
-      // Use Response to send a clear error message to the client
-      return new Response("Prompt is required", { status: 400 });
-    }
+    const { messages }: { messages: CoreMessage[] } = await req.json();
 
     const result = await streamText({
       model: google("models/gemini-1.5-flash"),
-      prompt: prompt,
+      messages,
     });
 
     return result.toDataStreamResponse();

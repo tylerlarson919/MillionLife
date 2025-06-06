@@ -25,6 +25,7 @@
     "@heroui/toast": "^2.0.10",
     "@react-aria/ssr": "3.9.8",
     "@react-aria/visually-hidden": "3.8.23",
+    "@types/react-speech-recognition": "^3.9.6",
     "ai": "^4.3.16",
     "clsx": "2.1.1",
     "firebase": "^11.9.0",
@@ -38,6 +39,8 @@
     "react-firebase-hooks": "^5.1.1",
     "react-hot-toast": "^2.5.2",
     "react-markdown": "^10.1.0",
+    "react-speech-recognition": "^4.0.1",
+    "regenerator-runtime": "^0.14.1",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1"
   },
