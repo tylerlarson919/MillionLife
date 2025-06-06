@@ -14,14 +14,13 @@ export function Navbar() {
   };
 
   return (
-    <header className="flex justify-between items-center p-4 bg-white dark:bg-zinc-800 border-b dark:border-zinc-700">
-      <div></div>
-      <div className="flex items-center">
+    <header className="flex justify-end items-center p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 h-16">
+      <div className="flex items-center space-x-4">
         <ThemeSwitcher />
-        <span className="mr-4 ml-4">{user?.email}</span>
+        <span>{user?.email}</span>
         <button
           onClick={handleSignOut}
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          className="px-4 py-2 bg-red-500 text-white rounded-md transition duration-200 hover:bg-red-600 dark:hover:bg-red-700"
         >
           Sign Out
         </button>
