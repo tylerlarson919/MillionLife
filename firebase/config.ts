@@ -2,6 +2,7 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
 import { getAuth, Auth } from "firebase/auth";
 import { getFirestore, Firestore } from "firebase/firestore";
+import { getAI, getGenerativeModel, GoogleAIBackend, GenerativeModel } from "firebase/ai";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -21,5 +22,12 @@ const app: FirebaseApp = !getApps().length
 // Exports
 export const auth: Auth = getAuth(app);
 export const db: Firestore = getFirestore(app);
+
+// Initialize and export the Gemini AI model
+const ai = getAI(app, { backend: new GoogleAIBackend() });
+export const gemini: GenerativeModel = getGenerativeModel(ai, {
+  model: "gemini-pro",
+});
+
 export default app;
 

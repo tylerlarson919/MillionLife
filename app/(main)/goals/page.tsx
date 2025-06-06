@@ -1,19 +1,29 @@
 "use client";
 
 import { useState } from "react";
+import { gemini } from "@/firebase/config";
 
 export default function GoalsPage() {
   const [goal, setGoal] = useState("");
   const [tasks, setTasks] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleDecomposition = async () => {
-    const response = await fetch("/api/gemini", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: goal, gem_type: "goal_decomposition" }),
-    });
-    const data = await response.json();
-    setTasks(data.result);
+    if (!goal) return;
+    setLoading(true);
+    setTasks("");
+    try {
+      const fullPrompt = `Decompose the following goal into a list of actionable tasks: "${goal}"`;
+      const result = await gemini.generateContent(fullPrompt);
+      const response = await result.response;
+      const text = response.text();
+      setTasks(text);
+    } catch (error) {
+      console.error("Error generating tasks:", error);
+      setTasks("Failed to generate tasks. Please check the console for more details.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -27,9 +37,10 @@ export default function GoalsPage() {
       />
       <button
         onClick={handleDecomposition}
-        className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        disabled={loading}
+        className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-400"
       >
-        Break Down Goal
+        {loading ? "Breaking Down Goal..." : "Break Down Goal"}
       </button>
       {tasks && (
         <div className="mt-4 p-4 bg-white rounded shadow">

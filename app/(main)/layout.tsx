@@ -28,7 +28,7 @@ export default function MainLayout({
   // While loading, or if there is no user, show a loading screen
   // This prevents the redirect loop and a flash of the dashboard content
   if (loading || !user) {
-    return <div>Loading...</div>; // Or a proper loading spinner component
+    return <div className="flex justify-center items-center h-screen">Loading...</div>; // Or a proper loading spinner component
   }
 
   // If loading is false and user exists, render the protected layout

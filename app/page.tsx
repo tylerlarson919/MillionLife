@@ -19,5 +19,5 @@ export default function HomePage() {
   }, [user, loading, router]);
 
   // You can return a loading spinner here while redirecting
-  return <div>Loading...</div>;
+  return <div className="flex justify-center items-center h-screen">Loading...</div>;
 }
