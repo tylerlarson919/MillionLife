@@ -1,7 +1,7 @@
 // lib/firebaseConfig.ts
 import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
-import { getAuth, Auth } from "firebase/auth";
-import { getFirestore, Firestore } from "firebase/firestore";
+import { getAuth, Auth, connectAuthEmulator } from "firebase/auth";
+import { getFirestore, Firestore, connectFirestoreEmulator } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -18,8 +18,16 @@ const app: FirebaseApp = !getApps().length
   ? initializeApp(firebaseConfig)
   : getApp();
 
+const auth: Auth = getAuth(app);
+const db: Firestore = getFirestore(app);
+
+// Connect to emulators in development
+if (process.env.NODE_ENV === "development" && process.env.NEXT_PUBLIC_USE_EMULATORS === "true") {
+  console.log("Connecting to Firebase Emulators");
+  connectAuthEmulator(auth, "http://localhost:9099");
+  connectFirestoreEmulator(db, "localhost", 8080);
+}
+
 // Exports
-export const auth: Auth = getAuth(app);
-export const db: Firestore = getFirestore(app);
-export default app;
+export { app, auth, db };
 

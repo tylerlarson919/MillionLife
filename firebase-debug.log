@@ -1,0 +1,35 @@
+[debug] [2025-06-07T04:46:22.544Z] ----------------------------------------------------------------------
+[debug] [2025-06-07T04:46:22.545Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\tyler\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2025-06-07T04:46:22.546Z] CLI Version:   14.1.0
+[debug] [2025-06-07T04:46:22.546Z] Platform:      win32
+[debug] [2025-06-07T04:46:22.546Z] Node Version:  v22.11.0
+[debug] [2025-06-07T04:46:22.546Z] Time:          Sat Jun 07 2025 00:46:22 GMT-0400 (Eastern Daylight Time)
+[debug] [2025-06-07T04:46:22.546Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-07T04:46:22.743Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-07T04:46:22.744Z] > authorizing via signed-in user (tylerlarson919@gmail.com)
+[debug] [2025-06-07T04:46:22.835Z] java version "21.0.7" 2025-04-15 LTS
+Java(TM) SE Runtime Environment (build 21.0.7+8-LTS-245)
+
+[debug] [2025-06-07T04:46:22.835Z] Java HotSpot(TM) 64-Bit Server VM (build 21.0.7+8-LTS-245, mixed mode, sharing)
+
+[debug] [2025-06-07T04:46:22.847Z] Parsed Java major version: 21
+[info] i  emulators: Starting emulators: auth, functions, firestore, storage, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, storage, extensions"}}
+[debug] [2025-06-07T04:46:22.848Z] Checked if tokens are valid: true, expires at: 1749273883881
+[debug] [2025-06-07T04:46:22.848Z] Checked if tokens are valid: true, expires at: 1749273883881
+[debug] [2025-06-07T04:46:22.849Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/million-e1c50 [none]
+[debug] [2025-06-07T04:46:23.009Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/million-e1c50 200
+[debug] [2025-06-07T04:46:23.010Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/million-e1c50 {"projectNumber":"904883597065","projectId":"million-e1c50","lifecycleState":"ACTIVE","name":"MillionMind","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-06-06T00:31:06.338604Z"}
+[debug] [2025-06-07T04:46:23.019Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-06-07T04:46:23.020Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-06-07T04:46:23.020Z] [firestore] Firestore Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-06-07T04:46:23.020Z] [firestore.websocket] websocket server for firestore only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-06-07T04:46:23.020Z] [storage] Storage Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-06-07T04:46:23.020Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2025-06-07T04:46:23.024Z] [hub] writing locator at C:\Users\tyler\AppData\Local\Temp\hub-million-e1c50.json
+[debug] [2025-06-07T04:46:23.029Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2025-06-07T04:46:23.032Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-06-07T04:46:23.032Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-06-07T04:46:23.032Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-06-07T04:46:23.032Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"firestore":[{"address":"127.0.0.1","family":"IPv4","port":8080}],"firestore.websocket":[{"address":"127.0.0.1","family":"IPv4","port":9150}],"storage":[{"address":"127.0.0.1","family":"IPv4","port":9199}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, database, hosting, pubsub, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mapphosting, database, hosting, pubsub, dataconnect\u001b[22m"}}

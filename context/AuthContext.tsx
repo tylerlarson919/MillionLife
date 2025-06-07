@@ -1,5 +1,11 @@
 "use client";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useMemo,
+} from "react";
 import { auth } from "@/firebase/config";
 import {
   signInWithEmailAndPassword,
@@ -47,20 +53,21 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const resetPassword = (email: string) => sendPasswordResetEmail(auth, email);
   const logout = () => signOut(auth);
 
+  const memoedValue = useMemo(
+    () => ({
+      user,
+      loading,
+      login,
+      register,
+      loginWithGoogle,
+      resetPassword,
+      logout,
+    }),
+    [user, loading]
+  );
+
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        loading,
-        login,
-        register,
-        loginWithGoogle,
-        resetPassword,
-        logout,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={memoedValue}>{children}</AuthContext.Provider>
   );
 };
 
